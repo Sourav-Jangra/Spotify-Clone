@@ -4,6 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Spotify Clone - A fully responsive music streaming web player with interactive controls, playlists, and modern UI. Built with HTML, CSS, and JavaScript." />
+		<meta name="keywords" content="Spotify Clone, Music Player, Web Player, HTML, CSS, JavaScript, Responsive Design" />
+		<meta name="author" content="Sourav Jangra" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -22,182 +25,433 @@
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
+		<!-- Main Application Container -->
 		<div class="main">
-			<div class="sidebar">
-				<div class="nav">
-					<div class="nav-option" style="opacity: 1">
-						<i class="fa-solid fa-house"></i>
-						<a href="#">Home</a>
+			<aside class="sidebar" role="navigation" aria-label="Main navigation">
+				<div class="sidebar-header">
+					<div class="logo-container">
+						<i class="fa-brands fa-spotify logo-icon"></i>
+						<span class="logo-text">Spotify</span>
 					</div>
-					<div class="nav-option">
-						<i class="fa-solid fa-magnifying-glass"></i>
-						<a href="#">Search</a>
-					</div>
+					<button class="sidebar-toggle" aria-label="Toggle sidebar">
+						<i class="fa-solid fa-bars"></i>
+					</button>
 				</div>
-				<div class="library">
+				
+				<nav class="nav">
+					<div class="nav-option active" id="nav-home">
+						<i class="fa-solid fa-house" aria-hidden="true"></i>
+						<a href="#home" aria-label="Home">Home</a>
+					</div>
+					<div class="nav-option" id="nav-search">
+						<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+						<a href="#search" aria-label="Search">Search</a>
+					</div>
+					<div class="nav-option" id="nav-browse">
+						<i class="fa-solid fa-compact-disc" aria-hidden="true"></i>
+						<a href="#browse" aria-label="Browse">Browse</a>
+					</div>
+					<div class="nav-option" id="nav-artists">
+						<i class="fa-solid fa-user-music" aria-hidden="true"></i>
+						<a href="#artists" aria-label="Artists">Artists</a>
+					</div>
+				</nav>
+				<section class="library" aria-label="Your Library">
 					<div class="options">
 						<div class="lib-options nav-option">
-							<img src="/Images/library_icon.png" alt="" />
-							<a href="#">Your Library</a>
+							<img src="/Images/library_icon.png" alt="Library icon" />
+							<a href="#library" aria-label="Your Library">Your Library</a>
 						</div>
 						<div class="icons">
-							<i class="fa-solid fa-plus"></i>
-							<i class="fa-solid fa-arrow-right"></i>
+							<i class="fa-solid fa-plus" aria-label="Add to library"></i>
+							<i class="fa-solid fa-arrow-right" aria-label="Expand library"></i>
 						</div>
 					</div>
 					<div class="lib-box">
-						<div class="box">
+						<article class="box">
 							<p class="box-p1">Create your first playlist</p>
 							<p class="box-p2">It's easy, we'll help you</p>
-							<button class="badge">Create Playlist</button>
-						</div>
-						<div class="box">
+							<button class="badge" aria-label="Create new playlist" id="create-playlist-btn">Create Playlist</button>
+						</article>
+						<article class="box">
 							<p class="box-p1">Let's find some podcasts to follow</p>
 							<p class="box-p2">We'll keep you updated on new episodes</p>
-							<button class="badge">Browse podcasts</button>
+							<button class="badge" aria-label="Browse available podcasts">Browse podcasts</button>
+						</article>
+					</div>
+					<div class="liked-songs-container">
+						<div class="liked-header">
+							<i class="fa-solid fa-heart" style="color: #1db954;"></i>
+							<span>Liked Songs</span>
+						</div>
+						<div class="genre-filters">
+							<button class="genre-tag active" data-genre="all">All</button>
+							<button class="genre-tag" data-genre="pop">Pop</button>
+							<button class="genre-tag" data-genre="rock">Rock</button>
+							<button class="genre-tag" data-genre="hiphop">Hip-Hop</button>
+							<button class="genre-tag" data-genre="indie">Indie</button>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="main-content">
-				<div class="sticky-nav">
+				</section>
+			</aside>
+			<main class="main-content" role="main">
+				<header class="sticky-nav">
 					<div class="sticky-nav-icons">
-						<img src="/Images/backward_icon.png" alt="backward_icon" />
-						<img src="/Images/forward_icon.png" alt="forward_icon" />
+						<img src="/Images/backward_icon.png" alt="Go back" role="button" tabindex="0" />
+						<img src="/Images/forward_icon.png" alt="Go forward" role="button" tabindex="0" />
+					</div>
+					<div class="search-bar-container">
+						<input type="text" class="search-input" placeholder="Search songs, artists, playlists..." aria-label="Search input" />
+						<i class="fa-solid fa-magnifying-glass search-icon"></i>
 					</div>
 					<div class="sticky-nav-options">
-						<button class="badge nav-item">Explore Premium</button>
-						<button class="badge nav-item dark-badge">
-							<i class="fa-solid fa-download"></i> Install App
+						<button class="badge nav-item" aria-label="Explore Premium features">Explore Premium</button>
+						<button class="badge nav-item dark-badge" aria-label="Install Spotify app">
+							<i class="fa-solid fa-download" aria-hidden="true"></i> Install App
 						</button>
-						<i class="fa-solid fa-user nav-item"></i>
+						<div class="user-menu" aria-label="User profile menu">
+							<i class="fa-solid fa-user nav-item" role="button" tabindex="0"></i>
+							<div class="user-dropdown">
+								<p>Sourav Jangra</p>
+								<a href="#">Account</a>
+								<a href="#">Logout</a>
+							</div>
+						</div>
 					</div>
-				</div>
+				</header>
 
-				<h2>Recently Played</h2>
-				<div class="card-container">
-					<div class="card">
-						<img src="/Images/card1img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
+				<section id="home-section" aria-labelledby="recently-played-heading">
+					<div class="greeting-banner">
+						<h1 class="greeting-text">Good Evening! 🎵</h1>
+						<p class="greeting-subtext">Here's what's playing in your neck of the woods</p>
 					</div>
-				</div>
 
-				<h2>Trending now near you</h2>
-				<div class="card-container">
-					<div class="card">
-						<img src="/Images/card2img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
+					<h2 id="recently-played-heading" class="section-title">Recently Played</h2>
+					<div class="card-container">
+						<article class="card" role="button" tabindex="0" aria-label="Play Today's Top Hits playlist">
+							<div class="card-image-wrapper">
+								<img src="/Images/card1img.jpeg" alt="Today's Top Hits playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Today's Top Hits</p>
+							<p class="card-info">Ed Sheeran is on top of the Hottest 50!</p>
+							<p class="card-meta">Playlist • 50 songs</p>
+						</article>
+						<article class="card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card2img.jpeg" alt="Chill Lofi Beats playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Chill Lofi Beats</p>
+							<p class="card-info">Perfect study and relaxation tracks</p>
+							<p class="card-meta">Playlist • 30 songs</p>
+						</article>
+						<article class="card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card3img.jpeg" alt="Workout Energy playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Workout Energy</p>
+							<p class="card-info">Pump up your exercise routine</p>
+							<p class="card-meta">Playlist • 45 songs</p>
+						</article>
+						<article class="card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card5img.jpeg" alt="Late Night Vibes playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Late Night Vibes</p>
+							<p class="card-info">Smooth jazz and soul for the night</p>
+							<p class="card-meta">Playlist • 35 songs</p>
+						</article>
 					</div>
-					<div class="card">
-						<img src="/Images/card3img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
-					</div>
-					<div class="card">
-						<img src="/Images/card5img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
-					</div>
-					<div class="card">
-						<img src="/Images/card3img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
-					</div>
-					<div class="card">
-						<img src="/Images/card5img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
-					</div>
-				</div>
 
-				<h2>Featured Charts</h2>
-				<div class="card-container">
-					<div class="card">
-						<img src="/Images/card3img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
+					<h2 class="section-title">Trending now near you</h2>
+					<div class="card-container">
+						<article class="card featured" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card2img.jpeg" alt="RapCaviar playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">RapCaviar</p>
+							<p class="card-info">New music from Drake, Travis Scott</p>
+							<p class="card-meta">Playlist • 60 songs</p>
+						</article>
+						<article class="card featured" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card3img.jpeg" alt="All Out 2010s playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">All Out 2010s</p>
+							<p class="card-info">The biggest songs of the 2010s</p>
+							<p class="card-meta">Playlist • 75 songs</p>
+						</article>
+						<article class="card featured" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card5img.jpeg" alt="Rock Classics playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Rock Classics</p>
+							<p class="card-info">Rock legends & epic songs</p>
+							<p class="card-meta">Playlist • 55 songs</p>
+						</article>
+						<article class="card featured" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card1img.jpeg" alt="Indie Gems playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Indie Gems</p>
+							<p class="card-info">The best indie and alternative tracks</p>
+							<p class="card-meta">Playlist • 40 songs</p>
+						</article>
+						<article class="card featured" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card2img.jpeg" alt="Jazz Masters playlist cover" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Jazz Masters</p>
+							<p class="card-info">Classic and modern jazz classics</p>
+							<p class="card-meta">Playlist • 50 songs</p>
+						</article>
 					</div>
-					<div class="card">
-						<img src="/Images/card5img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
-					</div>
-					<div class="card">
-						<img src="/Images/card1img.jpeg" alt="" class="card-img" />
-						<p class="card-title">Top 50 - Global</p>
-						<p class="card-info">
-							Your daily update of the most played tracks right now.
-						</p>
-					</div>
-				</div>
-				<div class="footer">
-					<div class="line"></div>
-				</div>
-			</div>
 
-			<div class="music-player">
-				<div class="album"></div>
+					<h2 class="section-title">Featured Charts</h2>
+					<div class="card-container">
+						<article class="card artist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper circular">
+								<img src="/Images/card3img.jpeg" alt="The Weeknd artist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">The Weeknd</p>
+							<p class="card-meta">Artist • 8.5M followers</p>
+						</article>
+						<article class="card artist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper circular">
+								<img src="/Images/card5img.jpeg" alt="Billie Eilish artist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Billie Eilish</p>
+							<p class="card-meta">Artist • 12.3M followers</p>
+						</article>
+						<article class="card artist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper circular">
+								<img src="/Images/card1img.jpeg" alt="Taylor Swift artist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Taylor Swift</p>
+							<p class="card-meta">Artist • 15.2M followers</p>
+						</article>
+						<article class="card artist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper circular">
+								<img src="/Images/card2img.jpeg" alt="Drake artist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Drake</p>
+							<p class="card-meta">Artist • 14.1M followers</p>
+						</article>
+						<article class="card artist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper circular">
+								<img src="/Images/card3img.jpeg" alt="Ariana Grande artist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Ariana Grande</p>
+							<p class="card-meta">Artist • 11.8M followers</p>
+						</article>
+					</div>
+
+					<h2 class="section-title">New Releases</h2>
+					<div class="card-container">
+						<article class="card album-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card1img.jpeg" alt="New album release" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Midnight Dreams</p>
+							<p class="card-info">Album by Luna Waves</p>
+							<p class="card-meta">2024 • 12 songs</p>
+						</article>
+						<article class="card album-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card2img.jpeg" alt="New album release" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Neon Nights</p>
+							<p class="card-info">Album by Synth Valley</p>
+							<p class="card-meta">2024 • 14 songs</p>
+						</article>
+						<article class="card album-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card5img.jpeg" alt="New album release" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Electric Hearts</p>
+							<p class="card-info">Album by Future Sounds</p>
+							<p class="card-meta">2024 • 11 songs</p>
+						</article>
+						<article class="card album-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card3img.jpeg" alt="New album release" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Golden Echoes</p>
+							<p class="card-info">Album by Retro Vibes</p>
+							<p class="card-meta">2024 • 13 songs</p>
+						</article>
+					</div>
+
+					<h2 class="section-title">Made For You</h2>
+					<div class="card-container">
+						<article class="card playlist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card2img.jpeg" alt="Discovery Playlist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Discover Weekly</p>
+							<p class="card-info">Your personalized weekly mix</p>
+							<p class="card-meta">Updated every Monday</p>
+						</article>
+						<article class="card playlist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card5img.jpeg" alt="Release Radar playlist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Release Radar</p>
+							<p class="card-info">New music from your favorite artists</p>
+							<p class="card-meta">Updated every Friday</p>
+						</article>
+						<article class="card playlist-card" role="button" tabindex="0">
+							<div class="card-image-wrapper">
+								<img src="/Images/card1img.jpeg" alt="Daily Mix playlist" class="card-img" />
+								<div class="card-play-overlay">
+									<i class="fa-solid fa-play"></i>
+								</div>
+							</div>
+							<p class="card-title">Daily Mix</p>
+							<p class="card-info">Continuous music based on your taste</p>
+							<p class="card-meta">Updated daily</p>
+						</article>
+					</div>
+
+				</section>
+
+				<footer class="footer">
+					<div class="footer-content">
+						<p>© 2024 Spotify Clone. All rights reserved.</p>
+						<div class="footer-links">
+							<a href="#">About</a> • 
+							<a href="#">Privacy</a> • 
+							<a href="#">Terms</a> • 
+							<a href="#">Contact</a>
+						</div>
+					</div>
+				</footer>
+			</main>
+
+			<footer class="music-player" role="region" aria-label="Music player controls">
+				<div class="album" aria-label="Currently playing album art"></div>
 				<div class="player">
-					<div class="player-controls">
+					<div class="player-controls" aria-label="Playback controls">
 						<img
 							src="/Images/player_icon1.png"
 							alt="Shuffle Icon"
 							class="player-control-icon"
+							role="button"
+							tabindex="0"
+							aria-label="Toggle shuffle"
 						/>
 						<img
 							src="/Images/player_icon2.png"
 							alt="Previous Icon"
 							class="player-control-icon"
+							role="button"
+							tabindex="0"
+							aria-label="Previous track"
 						/>
 						<img
 							src="/Images/player_icon3.png"
 							alt="Play/Pause Icon"
 							class="player-control-icon"
 							style="opacity: 1; height: 2rem"
+							role="button"
+							tabindex="0"
+							aria-label="Play or pause"
 						/>
 						<img
 							src="/Images/player_icon4.png"
 							alt="Next Song Icon"
 							class="player-control-icon"
+							role="button"
+							tabindex="0"
+							aria-label="Next track"
 						/>
 						<img
 							src="/Images/player_icon5.png"
 							alt="Shuffle "
 							class="player-control-icon"
+							role="button"
+							tabindex="0"
+							aria-label="Toggle repeat"
 						/>
 					</div>
-					<div class="playback-bar">
-						<span class="curr-time">00:00</span>
+					<div class="playback-bar" aria-label="Playback progress">
+						<span class="curr-time" aria-label="Current time">00:00</span>
 						<input
 							type="range"
 							min="0"
 							max="100"
 							class="progress-bar"
 							step="1"
+							aria-label="Seek slider"
+							aria-valuemin="0"
+							aria-valuemax="100"
+							aria-valuenow="0"
 						/>
-						<span class="total-time">03:23</span>
+						<span class="total-time" aria-label="Total duration">03:23</span>
 					</div>
 				</div>
-				<div class="controls"></div>
-			</div>
+				<div class="controls" aria-label="Additional controls"></div>
+			</footer>
 		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
